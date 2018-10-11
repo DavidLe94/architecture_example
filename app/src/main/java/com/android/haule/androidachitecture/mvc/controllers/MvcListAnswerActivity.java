@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 import com.android.haule.androidachitecture.R;
-import com.android.haule.androidachitecture.Utils.Reference;
 import com.android.haule.androidachitecture.adapter.AnswerAdapter;
 import com.android.haule.androidachitecture.api.ApiServices;
 import com.android.haule.androidachitecture.api.ApiUtils;
@@ -19,6 +18,7 @@ import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import static com.android.haule.androidachitecture.utils.Reference.SUCCESS;
 
 public class MvcListAnswerActivity extends BaseActivity {
     @BindView(R.id.recycler_view) RecyclerView recyclerView;
@@ -60,7 +60,7 @@ public class MvcListAnswerActivity extends BaseActivity {
         apiServices.getListAnswer().enqueue(new Callback<ResAnswer>() {
             @Override
             public void onResponse(Call<ResAnswer> call, Response<ResAnswer> response) {
-                if(response.code() == Reference.SUCCESS){
+                if(response.code() == SUCCESS){
                     adapter.notifyData((ArrayList<Item>) response.body().getItems());
                 }else{
                     Toast.makeText(MvcListAnswerActivity.this, "Can't get data", Toast.LENGTH_SHORT).show();

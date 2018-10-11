@@ -1,6 +1,6 @@
 package com.android.haule.androidachitecture.mvp.presenter;
 
-import com.android.haule.androidachitecture.Utils.Reference;
+import com.android.haule.androidachitecture.utils.Reference;
 import com.android.haule.androidachitecture.api.ApiServices;
 import com.android.haule.androidachitecture.api.ApiUtils;
 import com.android.haule.androidachitecture.models.Item;

@@ -18,7 +18,7 @@
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/movies"
+            android:text="@string/users_list"
             android:textStyle="bold"
             android:textSize="@dimen/_18ssp"
             android:textColor="@color/s_white"/>
