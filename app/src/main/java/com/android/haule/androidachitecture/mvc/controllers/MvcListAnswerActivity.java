@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 import com.android.haule.androidachitecture.R;
+import com.android.haule.androidachitecture.Utils.Reference;
 import com.android.haule.androidachitecture.adapter.AnswerAdapter;
 import com.android.haule.androidachitecture.api.ApiServices;
 import com.android.haule.androidachitecture.api.ApiUtils;
@@ -19,7 +20,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MvcListMovieActivity extends BaseActivity {
+public class MvcListAnswerActivity extends BaseActivity {
     @BindView(R.id.recycler_view) RecyclerView recyclerView;
     private ApiServices apiServices;
     private AnswerAdapter adapter;
@@ -59,10 +60,10 @@ public class MvcListMovieActivity extends BaseActivity {
         apiServices.getListAnswer().enqueue(new Callback<ResAnswer>() {
             @Override
             public void onResponse(Call<ResAnswer> call, Response<ResAnswer> response) {
-                if(response.code() == 200){
+                if(response.code() == Reference.SUCCESS){
                     adapter.notifyData((ArrayList<Item>) response.body().getItems());
                 }else{
-                    Toast.makeText(MvcListMovieActivity.this, "Can't get data", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MvcListAnswerActivity.this, "Can't get data", Toast.LENGTH_SHORT).show();
                 }
                 dialog.dismiss();
             }
@@ -70,13 +71,13 @@ public class MvcListMovieActivity extends BaseActivity {
             @Override
             public void onFailure(Call<ResAnswer> call, Throwable t) {
                 dialog.dismiss();
-                Toast.makeText(MvcListMovieActivity.this, "Can't connect to server", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MvcListAnswerActivity.this, "Can't connect to server", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
     protected int getLayoutResoureId() {
-        return R.layout.activity_mvc_list_movie;
+        return R.layout.activity_mvc_list_answer;
     }
 }
