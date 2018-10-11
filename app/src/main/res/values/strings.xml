@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">AndroidAchitecture</string>
+    <string name="app_name">AndroidArchitecture</string>
+
+
+    <string name="ui_text_username">Username</string>
+    <string name="ui_text_password">Password</string>
+    <string name="ui_text_login">Login</string>
+    <string name="movies">Movies</string>
 </resources>
