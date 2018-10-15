@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/s_white"
-    tools:context=".mvc.controllers.MvcListAnswerActivity"
+    tools:context=".mvp.views.MvpListAnswerActivity"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">

@@ -1,4 +1,4 @@
-package com.android.haule.androidachitecture.mvc.controllers;
+package com.android.haule.androidachitecture.mvc;
 
 import android.app.Dialog;
 import android.os.Bundle;

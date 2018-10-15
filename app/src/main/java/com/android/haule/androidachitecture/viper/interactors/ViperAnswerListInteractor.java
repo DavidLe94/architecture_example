@@ -4,7 +4,7 @@ import com.android.haule.androidachitecture.api.ApiServices;
 import com.android.haule.androidachitecture.api.ApiUtils;
 import com.android.haule.androidachitecture.models.Item;
 import com.android.haule.androidachitecture.models.ResAnswer;
-import com.android.haule.androidachitecture.viper.Contracts;
+import com.android.haule.androidachitecture.viper.AnswerListContracts;
 
 import java.util.ArrayList;
 
@@ -15,11 +15,11 @@ import retrofit2.Response;
 /**
  * Created by Hau Le on 2018-10-15.
  */
-public class ViperAnswerListInteractor implements Contracts.Interactor {
-    private Contracts.InteractorOutput output;
+public class ViperAnswerListInteractor implements AnswerListContracts.Interactor {
+    private AnswerListContracts.InteractorOutput output;
     private ApiServices apiServices;
 
-    public ViperAnswerListInteractor(Contracts.InteractorOutput output) {
+    public ViperAnswerListInteractor(AnswerListContracts.InteractorOutput output) {
         this.output = output;
         apiServices = ApiUtils.getApiService();
     }

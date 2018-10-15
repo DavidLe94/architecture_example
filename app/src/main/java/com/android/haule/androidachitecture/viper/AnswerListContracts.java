@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Created by Hau Le on 2018-10-15.
  */
-public interface Contracts {
+public interface AnswerListContracts {
     interface View{
         void getListAnswerFailed(String message);
         void getListAnswerSuccess(ArrayList<Item> list);

@@ -10,12 +10,12 @@ import com.android.haule.androidachitecture.adapter.AnswerAdapter;
 import com.android.haule.androidachitecture.base.BaseActivity;
 import com.android.haule.androidachitecture.callback.OnItemClickListener;
 import com.android.haule.androidachitecture.models.Item;
-import com.android.haule.androidachitecture.viper.Contracts;
+import com.android.haule.androidachitecture.viper.AnswerListContracts;
 import com.android.haule.androidachitecture.viper.presenters.ViperAnswerListPresenter;
 import java.util.ArrayList;
 import butterknife.BindView;
 
-public class ViperAnswerListActivity extends BaseActivity implements Contracts.View {
+public class ViperAnswerListActivity extends BaseActivity implements AnswerListContracts.View {
     @BindView(R.id.recycler_view) RecyclerView recyclerView;
 
     private ArrayList<Item> list;
