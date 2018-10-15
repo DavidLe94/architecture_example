@@ -1,8 +1,13 @@
 package com.android.haule.androidachitecture.models;
 
+import android.databinding.BindingAdapter;
+import android.widget.ImageView;
+import com.android.haule.androidachitecture.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
 /**
@@ -85,5 +90,18 @@ public class Owner implements Serializable{
 
     public void setAcceptRate(Integer acceptRate) {
         this.acceptRate = acceptRate;
+    }
+
+    @BindingAdapter("android:src")
+    public static void setImageUrl(ImageView imageView, String url){
+        Glide.with(imageView.getContext())
+            .load(url)
+            .apply(
+                new RequestOptions()
+                    .placeholder(R.mipmap.ic_launcher)
+                    .error(R.mipmap.ic_launcher)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+            )
+            .into(imageView);
     }
 }
