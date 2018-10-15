@@ -1,4 +1,4 @@
-package com.android.haule.androidachitecture.mvp.views;
+package com.android.haule.androidachitecture.viper.views;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -10,56 +10,57 @@ import com.android.haule.androidachitecture.adapter.AnswerAdapter;
 import com.android.haule.androidachitecture.base.BaseActivity;
 import com.android.haule.androidachitecture.callback.OnItemClickListener;
 import com.android.haule.androidachitecture.models.Item;
-import com.android.haule.androidachitecture.mvp.presenter.ListAnswerPresenter;
-import com.android.haule.androidachitecture.mvp.presenter.ListAnswerPresenterImpl;
+import com.android.haule.androidachitecture.viper.Contracts;
+import com.android.haule.androidachitecture.viper.presenters.ViperAnswerListPresenter;
 import java.util.ArrayList;
 import butterknife.BindView;
 
-public class MvpListAnswerActivity extends BaseActivity implements ListAnswerView {
+public class ViperAnswerListActivity extends BaseActivity implements Contracts.View {
     @BindView(R.id.recycler_view) RecyclerView recyclerView;
-    private Dialog dialog;
-    private AnswerAdapter adapter;
+
     private ArrayList<Item> list;
-    private ListAnswerPresenter presenter;
+    private AnswerAdapter adapter;
+    private Dialog dialog;
+    private ViperAnswerListPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initData();
+        initDataView();
     }
 
-    private void initData() {
-        presenter = new ListAnswerPresenterImpl(this);
+    private void initDataView() {
         list = new ArrayList<>();
         adapter = new AnswerAdapter(this, list, new OnItemClickListener() {
             @Override
             public void callback(View view, int position) {
-                //TODO: callback
+
             }
         });
         recyclerView.setAdapter(adapter);
+        presenter = new ViperAnswerListPresenter(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        presenter.actionGetListMovie();
+        presenter.actionLoadListAnswer();
     }
 
     @Override
     protected int getLayoutResoureId() {
-        return R.layout.activity_mvp_list_answer;
+        return R.layout.activity_viper_answer_list;
     }
 
     @Override
-    public void getListMovieSuccess(ArrayList<Item> list) {
-        this.list = list;
-        adapter.notifyData(list);
-    }
-
-    @Override
-    public void getListMovieFailed(String message) {
+    public void getListAnswerFailed(String message) {
         Toast.makeText(this, "Can't get list answer", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void getListAnswerSuccess(ArrayList<Item> list) {
+        adapter.notifyData(list);
+        this.list = list;
     }
 
     @Override
