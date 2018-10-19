@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import com.android.haule.androidachitecture.R;
+import com.android.haule.androidachitecture.api.ApiUtils;
 import com.android.haule.androidachitecture.base.BaseActivity;
 import com.android.haule.androidachitecture.mvc.controller.MvcController;
 import butterknife.BindView;
